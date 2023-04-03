@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.compose.mathsquiz.quizdetails.QuizDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/quiz_text"
+            style="@style/TextAppearance.Material3.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@{vm.uiDetails.first}"
+            android:textColor="@color/colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_table_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@color/purple_700"
+            android:hint="@{vm.uiDetails.second}"
+            android:inputType="number"
+            android:textColor="@color/colorOnPrimary"
+            app:bindVisibleorGone="@{vm.shouldShowEditBox.first}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_text" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/end_table_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/purple_700"
+            android:hint="@{vm.uiDetails.third}"
+            android:inputType="number"
+            android:textColor="@color/colorOnPrimary"
+            app:bindVisibleorGone="@{vm.shouldShowEditBox.second}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/start_table_no" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lets_go_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Let's Go !!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/end_table_no" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
